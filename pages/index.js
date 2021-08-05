@@ -7,7 +7,6 @@ import { usePosts } from "hooks/usePosts";
 
 export default function Home({ posts }) {
   const { data, isLoading, error } = usePosts(posts);
-
   if (error)
     return (
       <div>
@@ -25,10 +24,9 @@ export default function Home({ posts }) {
       </Row>
 
       <hr />
-
       <pre>{JSON.stringify(data, null, 2)}</pre>
       <Row className="mb-5">
-        {posts.map((post) => (
+        {data.map((post) => (
           <Col md="4" key={Math.random()}>
             <GridItem post={post} />
           </Col>
