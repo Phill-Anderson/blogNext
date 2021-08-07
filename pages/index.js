@@ -1,6 +1,6 @@
 import { Row, Col } from "react-bootstrap";
 import GridItem from "components/grid-item";
-import { getAllPosts } from "lib/api";
+import { getAllPosts, getPaginatePosts } from "lib/api";
 import Layout from "components/layout";
 import Intro from "components/intro";
 import { usePosts } from "hooks/usePosts";
@@ -44,19 +44,19 @@ export default function Home({ posts }) {
           ))
         }
       </Row>
-      <Row>
-        <div style={{ textAlign: 'center' }}>
-          {
-            data && data[data.length - 1].length !== 0 && <button onClick={() => setSize(size + 1)}>Цааш нь ...</button>
-          }
-        </div>
-      </Row>
+
+      <div style={{ textAlign: 'center' }}>
+        {
+          data && data[data.length - 1].length !== 0 && <button onClick={() => setSize(size + 1)}>Цааш нь ...</button>
+        }
+      </div>
+
     </Layout>
   );
 }
 
 export const getStaticProps = async () => {
-  const posts = await getAllPosts(1, PAGE_LIMIT);
+  const posts = await getPaginatePosts(1, PAGE_LIMIT);
 
   return {
     props: {

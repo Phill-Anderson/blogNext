@@ -1,12 +1,23 @@
 import { Row, Col } from "react-bootstrap";
 import Layout from "components/layout";
-import { getPostBySlug, getAllPosts } from "lib/api";
+import { getPostBySlug, getAllPosts, getPaginatePosts } from "lib/api";
 import BlockContent from "@sanity/block-content-to-react";
 import HiglightCode from "components/higlight-code";
 import { urlFor } from "lib/api";
 import PostHeader from "components/post-header";
+import { useRouter } from "next/router"
 
 export default ({ post }) => {
+  const router = useRouter()
+
+  // getStaticPaths - ийн fallback - ийг true болгосноор getStaticPaths - аар орж ирсэн paths -уудаас ялгаатай path бүхий хуудсыг client талаас дуудвал түүнийг ssr хийж харуулна
+  // өөрөөр хэлбэл энэхүү хуудсанд SG болон SSR - ийг хослуулан хэрэглэсэн хуудас юм.
+  if (router.isFallback) return (
+    <Layout>
+      <div>түр хүлээнэ үү</div>
+    </Layout>
+  )
+
   return (
     <Layout>
       <Row>
@@ -54,13 +65,13 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const posts = await getAllPosts();
+  const posts = await getPaginatePosts(0, 4);
   return {
     paths: posts.map((post) => ({
       params: {
         slug: post.slug,
       },
     })),
-    fallback: false,
+    fallback: true, // тухайн paths - аас ондоо paths орж ирвэл ssr хийж харуулна SG, SSR - ИЙГ хослуулан хэрэглэсэн хуудас
   };
 };
