@@ -2,6 +2,7 @@ import "styles/index.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "highlight.js/styles/agate.css";
 import { SWRConfig } from "swr";
+import { ThemeProvider } from '../context/theme-context'
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -34,7 +35,9 @@ function MyApp({ Component, pageProps }) {
         },
       }}
     >
-      <Component {...pageProps} />
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </SWRConfig>
   );
 }
