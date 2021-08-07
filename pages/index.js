@@ -4,17 +4,25 @@ import { getAllPosts } from "lib/api";
 import Layout from "components/layout";
 import Intro from "components/intro";
 import { usePosts } from "hooks/usePosts";
+import { useSWRInfinite } from "swr";
+const PAGE_LIMIT = 2
 
 export default function Home({ posts }) {
-  const { data, isLoading, error } = usePosts(posts);
-  if (error)
-    return (
-      <div>
-        Алдаа гарлаа: <pre>{JSON.stringify(error, null, 2)}</pre>
-      </div>
-    );
-  if (isLoading) return <div>Ачаалж байна...</div>;
+  // const { data, isLoading, error } = usePosts(posts);
 
+  // app.js дээр глобал байдлаар useSWR - ийн fetcher функцийг тохируулж өгсөн учраас энэ тохиолдолд fetcher - ийг бичих шаардлагагүй
+  const { data, size, setSize } = useSWRInfinite((index) => `/api/posts?page=${index}&limit=${PAGE_LIMIT}`);
+
+
+
+  /* if (error)
+     return (
+       <div>
+         Алдаа гарлаа: <pre>{JSON.stringify(error, null, 2)}</pre>
+       </div>
+     );
+   if (isLoading) return <div>Ачаалж байна...</div>;
+ */
   return (
     <Layout>
       <Row>
@@ -26,18 +34,29 @@ export default function Home({ posts }) {
       <hr />
       <pre>{JSON.stringify(data, null, 2)}</pre>
       <Row className="mb-5">
-        {data.map((post) => (
-          <Col md="4" key={Math.random()}>
-            <GridItem post={post} />
-          </Col>
-        ))}
+        {
+          data && data.map(page => (
+            page.map(post => (
+              <Col md={12 / PAGE_LIMIT} key={Math.random()}>
+                <GridItem post={post} />
+              </Col>
+            ))
+          ))
+        }
+      </Row>
+      <Row>
+        <div style={{ textAlign: 'center' }}>
+          {
+            data && data[data.length - 1].length !== 0 && <button onClick={() => setSize(size + 1)}>Цааш нь ...</button>
+          }
+        </div>
       </Row>
     </Layout>
   );
 }
 
 export const getStaticProps = async () => {
-  const posts = await getAllPosts();
+  const posts = await getAllPosts(1, PAGE_LIMIT);
 
   return {
     props: {
