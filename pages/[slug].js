@@ -7,6 +7,7 @@ import { urlFor } from "lib/api";
 import PostHeader from "components/post-header";
 import { useRouter } from "next/router"
 
+import PreviewAlert from '../components/preview-alert'
 export default ({ post, preview }) => {
   const router = useRouter()
 
@@ -31,7 +32,7 @@ export default ({ post, preview }) => {
     <Layout>
       <Row>
         <Col md="12">
-          {preview && <div>Та preview горимд байна</div>}
+          {preview && <PreviewAlert />}
           <pre>{/*JSON.stringify(post, null, 2)*/}</pre>
           <PostHeader post={post} />
           <br />
@@ -66,6 +67,7 @@ const serializers = {
 };
 
 export const getStaticProps = async ({ params, preview = false, previewData }) => {
+  // sanity preview горимын мэдээллийг browser - ийн cookie -д хадгалж бга
   const post = await getPostBySlug(params.slug, preview);
 
   // post[0] - sanity-гаас published горимд байгаа post 

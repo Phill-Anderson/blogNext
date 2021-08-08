@@ -5,9 +5,10 @@ import Layout from "components/layout";
 import Intro from "components/intro";
 import { usePosts } from "hooks/usePosts";
 import { useSWRInfinite } from "swr";
+import PreviewAlert from "components/preview-alert";
 const PAGE_LIMIT = 2
 
-export default function Home({ posts }) {
+export default function Home({ posts, preview }) {
   // const { data, isLoading, error } = usePosts(posts);
 
   // app.js дээр глобал байдлаар useSWR - ийн fetcher функцийг тохируулж өгсөн учраас энэ тохиолдолд fetcher - ийг бичих шаардлагагүй
@@ -26,6 +27,7 @@ export default function Home({ posts }) {
   return (
     <Layout>
       <Row>
+        {preview && <PreviewAlert />}
         <Col md="12">
           <Intro />
         </Col>
@@ -55,12 +57,13 @@ export default function Home({ posts }) {
   );
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ preview = false }) => {
+  // sanity preview горимын мэдээллийг browser - ийн cookie -д хадгалж бга
   const posts = await getPaginatePosts(1, PAGE_LIMIT);
-
   return {
     props: {
       posts,
+      preview
     },
   };
 };
