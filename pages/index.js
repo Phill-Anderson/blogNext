@@ -12,7 +12,7 @@ export default function Home({ posts, preview }) {
   // const { data, isLoading, error } = usePosts(posts);
 
   // app.js дээр глобал байдлаар useSWR - ийн fetcher функцийг тохируулж өгсөн учраас энэ тохиолдолд fetcher - ийг бичих шаардлагагүй
-  const { data, size, setSize } = useSWRInfinite((index) => `/api/posts?page=${index}&limit=${PAGE_LIMIT}`,
+  const { data, size, setSize, isValidating } = useSWRInfinite((index) => `/api/posts?page=${index}&limit=${PAGE_LIMIT}`,
     { initialData: [posts] }
   );
 
@@ -51,7 +51,11 @@ export default function Home({ posts, preview }) {
 
       <div style={{ textAlign: 'center' }}>
         {
-          data && data[data.length - 1].length !== 0 && <button onClick={() => setSize(size + 1)}>Цааш нь ...</button>
+          data && data[data.length - 1].length !== 0 &&
+
+          (isValidating ? <div>Түр хүлээнэ үү ...</div> :
+            <button onClick={() => setSize(size + 1)}>Цааш нь ...</button>
+          )
         }
       </div>
 

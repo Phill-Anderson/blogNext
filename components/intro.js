@@ -1,6 +1,6 @@
 import { Media, Image } from "react-bootstrap";
 
-export default () => (
+const intro = () => (
   <Media className="mb-4 admin-intro">
     <Image
       roundedCircle
@@ -19,3 +19,4 @@ export default () => (
     </Media.Body>
   </Media>
 );
+export default intro

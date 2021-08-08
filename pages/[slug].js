@@ -1,27 +1,15 @@
-import { useState, useEffect } from 'react'
 import { Row, Col } from "react-bootstrap";
+import Layout from "components/layout";
+import { getPostBySlug, getAllPosts, getPaginatePosts } from "lib/api";
 import BlockContent from "@sanity/block-content-to-react";
+import HiglightCode from "components/higlight-code";
+import { urlFor } from "lib/api";
+import PostHeader from "components/post-header";
 import { useRouter } from "next/router"
 
-import { urlFor } from "lib/api";
-import HiglightCode from "components/higlight-code";
-import PostHeader from "components/post-header";
-import Layout from "components/layout";
-import { getPostBySlug, getAllPosts, getPaginatePosts, listenPostUpdate } from "lib/api";
 import PreviewAlert from '../components/preview-alert'
-export default ({ post: initialPost, preview }) => {
-  const [post, setPost] = useState(initialPost)
+const PostDetail = ({ post, preview }) => {
   const router = useRouter()
-
-  useEffect(() => {
-    const sub = listenPostUpdate(post.slug, (update) => {
-      // debugger; // програмыг энд ирээд зогсооно -- browser дээрээсээ developer tool рүү орж source - ийг сонгож энэ зогссон мөрийг ажиглах боломжтой болно.
-      console.log(update)
-      setPost(update.result)
-    })
-
-    return sub && sub.subscribe?.(); // тухайн comp-оос subscribe функцийг гарах үед цэвэрлэж бна
-  }, [])
 
   // getStaticPaths - ийн fallback - ийг true болгосноор getStaticPaths - аар орж ирсэн paths -уудаас ялгаатай path бүхий хуудсыг client талаас дуудвал түүнийг ssr хийж харуулна
   // өөрөөр хэлбэл энэхүү хуудсанд SG болон SSR - ийг хослуулан хэрэглэсэн хуудас юм.
@@ -59,6 +47,7 @@ export default ({ post: initialPost, preview }) => {
   );
 };
 
+export default PostDetail
 const serializers = {
   types: {
     code: (props) => (

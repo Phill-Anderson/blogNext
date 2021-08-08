@@ -3,7 +3,7 @@ import Link from "next/link";
 import moment from "moment";
 import { urlFor } from "lib/api";
 
-export default ({ post }) => {
+const griditem = ({ post }) => {
   moment.locale("mn");
 
   return (
@@ -44,3 +44,4 @@ export default ({ post }) => {
     </Card>
   );
 };
+export default griditem
