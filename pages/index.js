@@ -61,11 +61,14 @@ export default function Home({ posts, preview }) {
 
 export const getStaticProps = async ({ preview = false }) => {
   // sanity preview горимын мэдээллийг browser - ийн cookie -д хадгалж бга
-  const posts = await getPaginatePosts(1, PAGE_LIMIT);
+  const posts = await getPaginatePosts(0, PAGE_LIMIT);
+
+  console.log(`index.html хуудас дахин build хийгдлээ`)
   return {
     props: {
       posts,
       preview
     },
+    revalidate: 10 // тухайн хугацааны дараа энэ хуудсыг дахин build хийнэ
   };
 };
