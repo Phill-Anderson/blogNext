@@ -12,7 +12,9 @@ export default function Home({ posts, preview }) {
   // const { data, isLoading, error } = usePosts(posts);
 
   // app.js дээр глобал байдлаар useSWR - ийн fetcher функцийг тохируулж өгсөн учраас энэ тохиолдолд fetcher - ийг бичих шаардлагагүй
-  const { data, size, setSize } = useSWRInfinite((index) => `/api/posts?page=${index}&limit=${PAGE_LIMIT}`);
+  const { data, size, setSize } = useSWRInfinite((index) => `/api/posts?page=${index}&limit=${PAGE_LIMIT}`,
+    { initialData: [posts] }
+  );
 
 
 
