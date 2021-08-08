@@ -8,6 +8,7 @@ const griditem = ({ post }) => {
 
   return (
     <Card className={`fj-card`}>
+      {/*   <pre>{JSON.stringify(post.category, null, 2)}</pre> */}
       <div className="card-body-wrapper">
         <Card.Header className="d-flex flex-row">
           <img
@@ -36,7 +37,7 @@ const griditem = ({ post }) => {
             </div>
             <Card.Body>
               <Card.Title className="card-main-title">{post.title}</Card.Title>
-              <Card.Text>{post.subtitle}</Card.Text>
+              <Card.Text>{post.category.title}</Card.Text>
             </Card.Body>
           </a>
         </Link>
