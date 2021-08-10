@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import "react-toggle/style.css"
 import "styles/index.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,6 +9,9 @@ import 'nprogress/nprogress.css'
 import { SWRConfig } from "swr";
 import { ThemeProvider } from '../context/theme-context'
 
+
+
+//progressBar
 Router.onRouteChangeStart = (url) => {
   console.log(url)
   Nprogress.start()
@@ -37,6 +41,16 @@ const fetcher = async (url) => {
 };
 
 function MyApp({ Component, pageProps }) {
+
+  useEffect(() => {
+    const threeScript = document.createElement("script")
+    threeScript.setAttribute("id", "threeScript")
+    threeScript.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js")
+    document.getElementsByTagName("head")[0].appendChild(threeScript)
+    return () => {
+      threeScript && threeScript.remove()
+    }
+  }, [])
   return (
     <SWRConfig
       value={{

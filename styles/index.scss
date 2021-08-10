@@ -1,3 +1,4 @@
+@import "~bootstrap/scss/bootstrap";
 html,
 body {
   height: 100%;
@@ -6,6 +7,11 @@ body {
   font-size: 14px;
   font-weight: 300;
   background-color: #f4f7f9;
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .clickable {
@@ -319,4 +325,48 @@ body {
   a {
     color: #63696e;
   }
+}
+
+.post {
+  background-color: #fff;
+  box-shadow: 2px 5px 25px rgba(0, 0, 0, 0.15);
+  min-height: 180px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  h3 {
+    color: #63696e;
+    font-weight: bold;
+  }
+  p {
+    color: #4e4e4e;
+    margin-left: 10px;
+    margin-top: 3px;
+  }
+  .image {
+    position: relative;
+    background-color: #4e4e4e;
+    overflow: hidden;
+    padding-top: 56.25%;
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+.badge {
+  padding: 10px;
+  margin: 5px;
+  color: hsl(210, 5%, 51%);
+  background-color: aquamarine;
+}
+.subStrText {
+  height: 48px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

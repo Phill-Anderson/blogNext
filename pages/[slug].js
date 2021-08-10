@@ -33,7 +33,7 @@ const PostDetail = ({ post, preview }) => {
       <Row>
         <Col md="12">
           {preview && <PreviewAlert />}
-          <pre>{/*JSON.stringify(post, null, 2)*/}</pre>
+          {/*  <pre>{JSON.stringify(post, null, 2)}</pre> */}
           <PostHeader post={post} />
           <br />
           <BlockContent

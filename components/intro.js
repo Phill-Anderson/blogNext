@@ -1,5 +1,5 @@
 import { Media, Image } from "react-bootstrap";
-
+import Header from 'components/header'
 const intro = () => (
   <Media className="mb-4 admin-intro">
     <Image
@@ -17,6 +17,7 @@ const intro = () => (
         мэдээллүүдийг энэхүү блогоор хүргэж байна.
       </p>
     </Media.Body>
+    <hr />
   </Media>
 );
 export default intro
