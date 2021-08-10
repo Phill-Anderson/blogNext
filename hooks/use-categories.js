@@ -1,8 +1,7 @@
 import useSWR from "swr";
 
-export const useCategories = (categories) => {
+export const useCategories = () => {
     const { data, error } = useSWR(`/api/categories`, {
-        initialData: categories,
         onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
             console.log("error try....");
             // Never retry on 404.
@@ -13,9 +12,6 @@ export const useCategories = (categories) => {
 
             // Only retry up to 10 times.
             if (retryCount >= 10) return;
-
-            // Retry after 5 seconds.
-            setTimeout(() => revalidate({ retryCount: retryCount + 1 }), 9000);
         },
         //refreshInterval: 1,
     });
