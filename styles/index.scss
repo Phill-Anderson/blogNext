@@ -16,6 +16,12 @@ body {
     }
   }
 }
+.active {
+  color: aquamarine !important;
+  svg {
+    color: aquamarine !important;
+  }
+}
 /*** framer menu css  ***/
 .motionMenu {
   nav {
@@ -459,4 +465,13 @@ body {
   height: 48px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.moreBtn {
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  background-color: aquamarine;
+  padding: 5px 20px;
+  color: #7c8288;
+  font-weight: bold;
 }

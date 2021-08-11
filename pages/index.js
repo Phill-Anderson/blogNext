@@ -39,7 +39,7 @@ export default function Home({ posts, preview }) {
           data && data[data.length - 1].length !== 0 &&
 
           (isValidating ? <div>Түр хүлээнэ үү ...</div> :
-            <button onClick={() => setSize(size + 1)}>Цааш нь ...</button>
+            <button className="moreBtn" onClick={() => setSize(size + 1)}>Цааш нь ...</button>
           )
         }
       </div>
@@ -59,6 +59,6 @@ export const getStaticProps = async ({ preview = false }) => {
       posts,
       preview
     },
-    revalidate: 10 // тухайн хугацааны дараа энэ хуудсыг дахин build хийнэ
+    revalidate: 10000 // тухайн хугацааны дараа энэ хуудсыг дахин build хийнэ
   };
 };

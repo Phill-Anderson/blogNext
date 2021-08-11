@@ -15,7 +15,7 @@ export const usePosts = (posts) => {
       if (retryCount >= 10) return;
 
       // Retry after 5 seconds.
-      setTimeout(() => revalidate({ retryCount: retryCount + 1 }), 1000);
+      setTimeout(() => revalidate({ retryCount: retryCount + 1 }), 60000);
     },
     //refreshInterval: 1,
   });
