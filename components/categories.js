@@ -7,12 +7,16 @@ const Categories = ({ categories }) => {
     return (
         <div className="mt-5">
             {/*  <pre>{JSON.stringify(categories, null, 2)}</pre> */}
-            {categories && categories.length > 0 && categories.map((category) => (
-                <Link href="/">
-                    <a className='badge'>{category.title}</a>
-                </Link>
-            ))
-            }
+            <h4>Сэдвүүд</h4>
+            <hr />
+            <div style={{ paddingTop: '20px' }}>
+                {categories && categories.length > 0 && categories.map((category) => (
+                    <Link href="/">
+                        <a key={category.title} className='catItem'>{category.title}</a>
+                    </Link>
+                ))
+                }
+            </div>
         </div>
     )
 }

@@ -8,7 +8,7 @@ import PreviewAlert from "components/preview-alert";
 
 const PAGE_LIMIT = 2
 
-export default function Home({ posts, preview }) {
+const Home = ({ posts, preview }) => {
   // const { data, isLoading, error } = usePosts(posts);
 
   // app.js дээр глобал байдлаар useSWR - ийн fetcher функцийг тохируулж өгсөн учраас энэ тохиолдолд fetcher - ийг дамжуулах шаардлагагүй
@@ -47,7 +47,7 @@ export default function Home({ posts, preview }) {
   );
 }
 
-
+export default Home;
 
 export const getStaticProps = async ({ preview = false }) => {
   // sanity preview горимын мэдээллийг browser - ийн cookie -д хадгалж бга
