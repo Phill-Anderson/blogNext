@@ -35,7 +35,30 @@ const sidebar = {
 };
 
 
-export default ({ children, categories }) => {
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+    x: '100vw'
+  },
+  visible: {
+    opacity: 1,
+    x: 0
+  },
+  transition: {
+    type: 'spring',
+    mass: 0.1,
+    damping: 8,
+    when: 'beforeChildren',
+    staggerChildren: 0.4
+  },
+  exit: {
+    x: '-100vw',
+    transition: { ease: 'easeInOut' }
+  }
+}
+
+
+export default ({ children, classes }) => {
   const { theme } = useTheme()
   const { data, isLoading, error } = useCategories();
 
@@ -49,6 +72,7 @@ export default ({ children, categories }) => {
       <Container fluid>
         <Row>
           <MyNavbar />
+
           <div className="motionMenu d-md-none">
             <motion.nav
               initial={false}
@@ -67,15 +91,21 @@ export default ({ children, categories }) => {
         </Row>
       </Container>
       <Container>
-        <Row>
-          <Col md={8}>
-            {children}
-          </Col>
-          <Col md={4}>
-            <Categories categories={data} />
-          </Col>
-        </Row>
-      </Container>
+        <motion.div className={classes}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          exit="exit">
+          <Row>
+            <Col md={8}>
+              {children}
+            </Col>
+            <Col md={4}>
+              <Categories categories={data} />
+            </Col>
+          </Row>
+        </motion.div >
+      </Container >
       <Container fluid>
         <Footer />
       </Container>
@@ -91,7 +121,7 @@ export default ({ children, categories }) => {
           `
         }
       </style>
-    </div>
+    </div >
   );
 };
 

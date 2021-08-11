@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from "components/layout";
 const profile = () => {
     return (
-        <Layout>
+        <Layout classes="profile">
             <div>
                 энэ бол profile хуудас
             </div>

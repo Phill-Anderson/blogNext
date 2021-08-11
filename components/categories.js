@@ -5,7 +5,7 @@ import Badge from 'react-bootstrap/Badge'
 const Categories = ({ categories }) => {
 
     return (
-        <div>
+        <div className="mt-5">
             {/*  <pre>{JSON.stringify(categories, null, 2)}</pre> */}
             {categories && categories.length > 0 && categories.map((category) => (
                 <Link href="/">

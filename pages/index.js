@@ -17,7 +17,7 @@ export default function Home({ posts, preview }) {
   );
 
   return (
-    <Layout>
+    <Layout classes="index">
       <Row>
         {preview && <PreviewAlert />}
       </Row>
