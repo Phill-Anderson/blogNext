@@ -1,6 +1,6 @@
 import * as React from "react";
 import { motion } from "framer-motion";
-
+import { useRouter } from 'next/router'
 const variants = {
     open: {
         y: 0,
@@ -18,18 +18,23 @@ const variants = {
     }
 };
 
-const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
+export const MenuItem = ({ i, icon, title, link }) => {
+    const router = useRouter()
+    const handleClick = (e) => {
+        e.preventDefault()
+        router.push(link)
+    }
 
-export const MenuItem = ({ i }) => {
-    const style = { border: `2px solid ${colors[i]}` };
     return (
         <motion.li
+            key={i}
             variants={variants}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
+            onClick={handleClick}
+            className={`${router.asPath === link ? 'active' : ''}`}
         >
-            <div className="icon-placeholder" style={style} />
-            <div className="text-placeholder" style={style} />
+            {icon} {title}
         </motion.li>
     );
 };

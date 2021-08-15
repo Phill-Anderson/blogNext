@@ -32,26 +32,23 @@ const header = () => {
         }
     }, [vantaEffect])
     return (
-        <div className="" ref={vantaRef} style={{ width: "100%", height: "300px" }}>
+        <div className="" ref={vantaRef} style={{ width: "100%", minHeight: "300px" }}>
             <Container>
                 <Row className="text-white">
-                    <div className="col-md-10">
-                        <div style={{ position: 'relative' }}>
-                            <div className="headerItemWrapper">
-                                <h5 className="text-right">Судалж мэдсэн бүхнээ бусадтайгаа хуваалцья!</h5>
-                                <p className="text-right">CSS3, TAILWINDCSS, BOOTSTRAP, SASS, JAVASCRIPT, REACT, NEXT, NODEJS, MYSQL, MONGODB, EXPRESSJS, GIT, GITHUB</p>
-                            </div>
+                    <div className="col-md-9">
+                        <div className="headerText">
+                            <h5 className="text-right">Судалж мэдсэн бүхнээ бусадтайгаа хуваалцья!</h5>
+                            <p className="text-right">CSS3, TAILWINDCSS, BOOTSTRAP, SASS, JAVASCRIPT, REACT, NEXT, NODEJS, MYSQL, MONGODB, EXPRESSJS, GIT, GITHUB</p>
                         </div>
                     </div>
-                    <div className="col-md-2" >
-                        <div style={{ position: 'relative', height: '100%' }}>
-                            <div className="headerItemWrapper">
-                                <Image src="/images/profile.png" width="200" height="200" layout="intrinsic" />
-                                <h5>Санжаажамц Энхтайван</h5>
-                                <p> MERN STACK хөгжүүлэгч</p>
-                            </div>
+                    <div className="col-md-3">
+                        <div className="float-right pt-5">
+                            <Image src="/images/profile.png" width="200" height="200" layout="intrinsic" className="rounded float-right" />
+                            <h5>Санжаажамц Энхтайван</h5>
+                            <p> MERN STACK хөгжүүлэгч</p>
                         </div>
                     </div>
+
                 </Row>
             </Container>
         </div>

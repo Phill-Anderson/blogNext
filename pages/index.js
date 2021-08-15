@@ -18,30 +18,32 @@ const Home = ({ posts, preview }) => {
 
   return (
     <Layout classes="index">
-      <Row>
-        {preview && <PreviewAlert />}
-      </Row>
-      {/*  <pre>{JSON.stringify(data, null, 2)}</pre> */}
-      <Row className="mb-5 mt-5">
-        {
-          data && data.map(page => (
-            page.map(post => (
-              <Col lg={12} key={Math.random()}>
-                <GridItem post={post} />
-              </Col>
+      <div>
+        <Row>
+          {preview && <PreviewAlert />}
+        </Row>
+        {/*  <pre>{JSON.stringify(data, null, 2)}</pre> */}
+        <Row className="mb-5 mt-5">
+          {
+            data && data.map(page => (
+              page.map(post => (
+                <Col lg={12} key={Math.random()}>
+                  <GridItem post={post} />
+                </Col>
+              ))
             ))
-          ))
-        }
-      </Row>
+          }
+        </Row>
 
-      <div style={{ textAlign: 'center' }}>
-        {
-          data && data[data.length - 1].length !== 0 &&
+        <div style={{ textAlign: 'center' }}>
+          {
+            data && data[data.length - 1].length !== 0 &&
 
-          (isValidating ? <div>Түр хүлээнэ үү ...</div> :
-            <button className="moreBtn" onClick={() => setSize(size + 1)}>Цааш нь ...</button>
-          )
-        }
+            (isValidating ? <div>Түр хүлээнэ үү ...</div> :
+              <button className="moreBtn" onClick={() => setSize(size + 1)}>Цааш нь ...</button>
+            )
+          }
+        </div>
       </div>
     </Layout>
   );
