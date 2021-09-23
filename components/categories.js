@@ -11,7 +11,7 @@ const Categories = ({ categories }) => {
             <hr />
             <div style={{ paddingTop: '20px' }}>
                 {categories && categories.length > 0 && categories.map((category) => (
-                    <Link href="/">
+                    <Link href={`/blog?category=${category.title}`}>
                         <a key={category.title} className='catItem'>{category.title}</a>
                     </Link>
                 ))

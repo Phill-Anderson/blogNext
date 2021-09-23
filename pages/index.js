@@ -1,6 +1,6 @@
 import { Row, Col, Container } from "react-bootstrap";
 import GridItem from "components/grid-item";
-import { getAllPosts, getPaginatePosts } from "lib/api";
+import { getAllPosts, getPaginatePosts, getPaginateCategoryPosts } from "lib/api";
 import Layout from "components/layout";
 import { usePosts } from "hooks/usePosts";
 import { useSWRInfinite } from "swr";
@@ -9,6 +9,7 @@ import PreviewAlert from "components/preview-alert";
 const PAGE_LIMIT = 2
 
 const Home = ({ posts, preview }) => {
+
   // const { data, isLoading, error } = usePosts(posts);
 
   // app.js дээр глобал байдлаар useSWR - ийн fetcher функцийг тохируулж өгсөн учраас энэ тохиолдолд fetcher - ийг дамжуулах шаардлагагүй
@@ -22,7 +23,7 @@ const Home = ({ posts, preview }) => {
         <Row>
           {preview && <PreviewAlert />}
         </Row>
-        {/*  <pre>{JSON.stringify(data, null, 2)}</pre> */}
+        {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
         <Row className="mb-5 mt-5">
           {
             data && data.map(page => (
