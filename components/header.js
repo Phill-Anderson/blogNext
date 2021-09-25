@@ -43,7 +43,7 @@ const header = () => {
                     </div>
                     <div className="col-md-3">
                         <div className="float-right pt-5">
-                            <Image src="/images/profile.png" width="200" height="200" layout="intrinsic" className="rounded float-right" />
+                            <Image src="/images/profile.jpg" width="250" height="200" layout="intrinsic" className="rounded float-right" />
                             <h5>Санжаажамц Энхтайван</h5>
                             <p> MERN STACK хөгжүүлэгч</p>
                         </div>
