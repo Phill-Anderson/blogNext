@@ -119,5 +119,18 @@ export const chalenges = [
         desc: 'api - гаар татсан мэдээллийг харуулах бөгөөд, тэдгээрийг шүүлт хийнэ, дэлгэрэнгүйг үзнэ, мөн статик байдлаар устгана',
         url: 'https://22-hacker-news-llpktuqbg-phill-anderson.vercel.app/'
     },
+    {
+        id: 22,
+        name: 'ICT GROUP - ийн вэб сайт / clone /',
+        desc: 'TailwindCSS - ийн documentation - ийг унших явцдаа хийсэн CSS challange бөгөөд NEXTJS ашигласан',
+        url: 'https://ict-web-clone-o2jvoat7o-phill-anderson.vercel.app/'
+    },
+    {
+        id: 23,
+        name: 'EClinic.mn / clone /',
+        desc: 'TailwindCSS -ийн дараагийн challange болох EClINIC.MN -ийг NEXTJS дээр дууриалган бичив.  Анимац талд FramerMotion ашиглав.',
+        url: 'https://eclinic-clone-p6aaqipjt-phill-anderson.vercel.app/'
+    },
+
 
 ]
