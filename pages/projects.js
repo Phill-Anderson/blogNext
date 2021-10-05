@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from 'components/layout'
 const projects = () => {
     return (
-        <Layout>
+        <Layout title='Миний төслүүд' description='js хөгжүүлэгч Phill Anderson - ны төслүүд'>
             <div className="mt-5">
                 <h3>Төслүүд</h3>
                 <div className="post mt-5">

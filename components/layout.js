@@ -1,4 +1,5 @@
 import { useRef } from "react"
+import Head from 'next/head'
 import { motion, useCycle } from "framer-motion";
 import { useDimensions } from "hooks/use-dimensions";
 import { MenuToggle } from "components/nav/MenuToggle";
@@ -58,7 +59,7 @@ const containerVariants = {
 }
 
 
-export default ({ children, classes }) => {
+export default ({ children, classes, title, description }) => {
   const { theme } = useTheme()
   const { data, isLoading, error } = useCategories();
 
@@ -68,60 +69,67 @@ export default ({ children, classes }) => {
 
 
   return (
-    <div className={theme.type}>
-      <Container fluid>
-        <Row>
-          <MyNavbar />
-
-          <div className="motionMenu d-md-none">
-            <motion.nav
-              initial={false}
-              animate={isOpen ? "open" : "closed"}
-              custom={height}
-              ref={containerRef}
-            >
-              <motion.div className="background" variants={sidebar} />
-              <Navigation />
-              <MenuToggle toggle={() => toggleOpen()} />
-            </motion.nav>
-          </div>
-        </Row>
-        <Row>
-          <Header />
-        </Row>
-      </Container>
-      <Container>
-        <motion.div className={classes}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          exit="exit">
+    <>
+      <Head>
+        <title> {title ? `${title} - С.Энхтайван` : ` С.Энхтайван`}  </title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        {description && <meta name="description" content={description} />}
+      </Head>
+      <div className={theme.type}>
+        <Container fluid>
           <Row>
-            <Col md={8}>
-              {children}
-            </Col>
-            <Col md={4}>
-              <Categories categories={data} />
-            </Col>
+            <MyNavbar />
+
+            <div className="motionMenu d-md-none">
+              <motion.nav
+                initial={false}
+                animate={isOpen ? "open" : "closed"}
+                custom={height}
+                ref={containerRef}
+              >
+                <motion.div className="background" variants={sidebar} />
+                <Navigation />
+                <MenuToggle toggle={() => toggleOpen()} />
+              </motion.nav>
+            </div>
           </Row>
-        </motion.div >
-      </Container >
-      <Container fluid>
-        <Footer />
-      </Container>
-      <style jsx global>
-        {
-          // global style бичиж бна
-          `html,
+          <Row>
+            <Header />
+          </Row>
+        </Container>
+        <Container>
+          <motion.div className={classes}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit">
+            <Row>
+              <Col md={8}>
+                {children}
+              </Col>
+              <Col md={4}>
+                <Categories categories={data} />
+              </Col>
+            </Row>
+          </motion.div >
+        </Container >
+        <Container fluid>
+          <Footer />
+        </Container>
+        <style jsx global>
+          {
+            // global style бичиж бна
+            `html,
            body{
              background: ${theme.background};
              color:${theme.fontColor};
              transition: color 0.2s ease-out 0s, background 0.2s ease-out 0s;
            } 
           `
-        }
-      </style>
-    </div >
+          }
+        </style>
+      </div>
+    </>
   );
 };
 

@@ -18,7 +18,7 @@ const Home = ({ posts, preview }) => {
   );
 
   return (
-    <Layout classes="index">
+    <Layout classes="index" title='Mern Stack developer С.Энхтайван' description='Mern Stack developer С.Энхтайван'>
       <div>
         <Row>
           {preview && <PreviewAlert />}

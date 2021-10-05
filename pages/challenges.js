@@ -3,7 +3,7 @@ import { chalenges } from '../datas/chalanges'
 import Layout from 'components/layout'
 const challenges = () => {
     return (
-        <Layout>
+        <Layout title='код чейлэнжүүд' description='js хэл дээр хийсэн дасгалууд'>
             <div className="mt-5">
                 {
                     chalenges.map(challange => {

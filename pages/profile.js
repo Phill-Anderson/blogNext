@@ -3,7 +3,7 @@ import Layout from "components/layout";
 const profile = () => {
 
     return (
-        <Layout classes="profile">
+        <Layout classes="profile" title='С.Энхтайван CV' description='С.Энхтайван CV'>
             <div classname="post mt-5 mb-5">
                 <h4 classname="text-center">Миний CV:</h4>
                 <h5>Үндсэн мэдээлэл</h5>

@@ -24,7 +24,7 @@ const Blog = ({ posts, preview }) => {
 
     }, [router.query.category])
     return (
-        <Layout classes="index">
+        <Layout classes="index" title='нийтлэл' description='Технологитой холбоотой сонирхолтой нийтлэлүүд'>
             <Row>
                 {preview && <PreviewAlert />}
             </Row>

@@ -29,7 +29,7 @@ const PostDetail = ({ post, preview }) => {
     )
 
   return (
-    <Layout>
+    <Layout title={post.name} description={post.name}>
       <Row>
         <Col md="12">
           {preview && <PreviewAlert />}
