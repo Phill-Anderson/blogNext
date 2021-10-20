@@ -79,7 +79,6 @@ export default ({ children, classes, title, description }) => {
         <Container fluid>
           <Row>
             <MyNavbar />
-
             <div className="motionMenu d-md-none">
               <motion.nav
                 initial={false}

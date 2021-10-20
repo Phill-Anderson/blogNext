@@ -39,7 +39,6 @@ const Home = ({ posts, preview }) => {
         <div style={{ textAlign: 'center' }}>
           {
             data && data[data.length - 1].length !== 0 &&
-
             (isValidating ? <div>Түр хүлээнэ үү ...</div> :
               <button className="moreBtn" onClick={() => setSize(size + 1)}>Цааш нь ...</button>
             )

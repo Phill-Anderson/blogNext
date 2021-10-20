@@ -666,6 +666,150 @@ body {
     color: #24b47e;
   }
 }
+.cvContainer {
+  display: flex;
+  width: 900px;
+  height: 100%;
+  background: white;
+  margin: 0 auto;
+  border: 1px solid #c7c7c7;
+
+  .item-header {
+    font-weight: 600;
+    font-size: 20px;
+    &--gutter {
+      padding: 0 10px 10px 30px;
+    }
+    &--black {
+      color: rgb(47, 58, 64);
+    }
+    &--red {
+      color: #f76060;
+    }
+    &--md {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+  .b-bottom {
+    width: 180px;
+    margin-left: 26px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid white;
+    &--red {
+      padding: 1px 0 0;
+      margin-left: 0;
+      width: 90%;
+      border-bottom: 3px solid #f76060;
+    }
+  }
+  .bg-red {
+    background-color: #f76060;
+  }
+  .color-white {
+    color: white;
+  }
+  .leftSide,
+  .rightSide {
+    padding: 20px 10px 20px;
+    color: #575757;
+  }
+  .leftSide {
+    width: 30%;
+    h5 {
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+  .rightSide {
+    width: 70%;
+  }
+  .details {
+    padding: 20px 0 20px 0;
+    .content {
+      padding: 10px 0;
+      p {
+        letter-spacing: 1px;
+        line-height: 20px;
+      }
+    }
+    .item {
+      padding: 10px 0 10px 0;
+      svg {
+        font-size: 20px;
+        margin-right: 10px;
+        color: #f76060;
+      }
+      .bar {
+        padding: 5px;
+        border: 1px solid white;
+        height: 20px;
+        width: 100%;
+        background: #f76060;
+      }
+      &:nth-child(2) {
+        .bar {
+          width: 100%;
+        }
+      }
+      &:nth-child(3) {
+        .bar {
+          width: 90%;
+        }
+      }
+      &:nth-child(4) {
+        .bar {
+          width: 80%;
+        }
+      }
+      &:nth-child(5) {
+        .bar {
+          width: 85%;
+        }
+      }
+      &:nth-child(6) {
+        .bar {
+          width: 70%;
+        }
+      }
+      &:nth-child(7) {
+        .bar {
+          width: 80%;
+        }
+      }
+      &:nth-child(8) {
+        .bar {
+          width: 75%;
+        }
+      }
+      &:nth-child(9) {
+        .bar {
+          width: 70%;
+        }
+      }
+      &:nth-child(10) {
+        .bar {
+          width: 65%;
+        }
+      }
+      &:nth-child(11) {
+        .bar {
+          width: 50%;
+        }
+      }
+      &:nth-child(12) {
+        .bar {
+          width: 75%;
+        }
+      }
+      &:nth-child(13) {
+        .bar {
+          width: 70%;
+        }
+      }
+    }
+  }
+}
 @media (max-width: 786px) {
   .timeline__event {
     flex-direction: column;
