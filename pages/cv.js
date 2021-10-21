@@ -88,7 +88,7 @@ const cv = () => {
                     <div>
                         <p className="item-header--gutter" style={{ lineHeight: '20px' }}>
                             Javascript хэл дээр сүүлийн 2 жилийн хугацаанд ойролцоогоор 3200 хүн/цагийг зарцуулсан бөгөөд : <br /> backend талд nodejs, express, mongoose, sequelize ашиглан rest Api бичих чадвартай.<br />
-                            Front-End талд react, nextjs, framer-motion, bootstrap, material-ui, tailwindcss , SASS, BEM ашиглан аливаа системийн интерфейсийг бичнэ
+                            Front-End талд react, nextjs, framer-motion, bootstrap, material-ui, tailwindcss , SASS, BEM ашиглан аливаа системийн интерфейсийг өгөгдсөн дизайны дагуу код болгон бичих чадвартай.
                         </p>
                     </div>
                 </div>
