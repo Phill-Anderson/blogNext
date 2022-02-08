@@ -69,6 +69,10 @@ const cv = () => {
                         <div className="bar"></div>
                     </div>
                     <div className="item">
+                        <div>MATERIAL UI - 75%</div>
+                        <div className="bar"></div>
+                    </div>
+                    <div className="item">
                         <div>FRAMER MOTION - 70%</div>
                         <div className="bar"></div>
                     </div>
@@ -87,8 +91,9 @@ const cv = () => {
                     <div className="b-bottom"></div>
                     <div>
                         <p className="item-header--gutter" style={{ lineHeight: '20px' }}>
-                            Javascript хэл дээр сүүлийн 2 жилийн хугацаанд ойролцоогоор 3200 хүн/цагийг зарцуулсан бөгөөд : <br /> backend талд nodejs, express, mongoose, sequelize ашиглан rest Api бичих чадвартай.<br />
-                            Front-End талд react, nextjs, framer-motion, bootstrap, material-ui, tailwindcss , SASS, BEM ашиглан аливаа системийн интерфейсийг өгөгдсөн дизайны дагуу код болгон бичих чадвартай.
+                            Javascript хэл дээр сүүлийн 2 жилийн хугацаанд ойролцоогоор 3500 хүн/цагийг зарцуулсан бөгөөд : <br /> backend талд nodejs, express, mongoose, sequelize ашиглан rest Api бичих чадвартай.<br />
+                            Front-End талд react, nextjs, framer-motion, bootstrap, material-ui, tailwindcss , SASS, BEM ашиглан аливаа системийн интерфейсийг өгөгдсөн дизайны дагуу код болгон хөгжүүлэх чадвартай. Мөн аливаа програм хангамжийн төслийн кодын архитектурыг
+                            зохиомжлоно. DRY, YAGNI, KISS зэрэг зарчмуудыг баримтлан кодоо бичдэг.
                         </p>
                     </div>
                 </div>
